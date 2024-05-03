@@ -4,20 +4,21 @@ Welcome to the Image Gallery project! This repository houses a robust solution f
 
 ## 📂 Project Structure
 
-.
-├── CreateJson.py
-├── banner.png
-├── check_thumb.py
-├── create_gallery_pages.py
-├── default_thumb.png
-├── generate_thumbnails.py
-├── index.html
-├── media.json
-├── script.js
-├── wel-come.svg
-└── .static
-└── css
-└── global.css
+📁 Project Root
+├── 📝 CreateJson.py
+├── 🖼️ banner.png
+├── 📝 check_thumb.py
+├── 📝 create_gallery_pages.py
+├── 📷 default_thumb.png
+├── 📝 generate_thumbnails.py
+├── 🖥️ index.html
+├── 📝 media.json
+├── 📜 script.js
+├── 🎨 wel-come.svg
+└── 📁 .static
+    └── 📁 css
+        └── 🎨 global.css
+
 
 
 ## 🚀 Getting Started
