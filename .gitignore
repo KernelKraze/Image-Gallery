@@ -1,0 +1,14 @@
+# Ignore specific directories and files
+
+1photo/
+thumbnails/
+CryptoWander/
+index.nginx-debian.html
+CreateJson.pyBAK2
+CreateJson.pyBAK
+index.htmlBAK2
+index.htmlBAK
+media.jsonBAK
+media.json
+default_thumb.png
+banner.png
