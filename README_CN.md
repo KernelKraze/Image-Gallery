@@ -5,19 +5,20 @@
 ## 📂 项目结构
 
 📁 Project Root
-├── 📝 CreateJson.py
-├── 🖼️ banner.png
-├── 📝 check_thumb.py
-├── 📝 create_gallery_pages.py
-├── 📷 default_thumb.png
-├── 📝 generate_thumbnails.py
-├── 🖥️ index.html
-├── 📝 media.json
-├── 📜 script.js
-├── 🎨 wel-come.svg
-└── 📁 .static
-    └── 📁 css
-        └── 🎨 global.css
+
+📝 CreateJson.py
+🖼️ banner.png
+📝 check_thumb.py
+📝 create_gallery_pages.py
+📷 default_thumb.png
+📝 generate_thumbnails.py
+🖥️ index.html
+📝 media.json
+📜 script.js
+🎨 wel-come.svg
+    📁 .static
+        📁 css
+            🎨 global.css
 
 
 
