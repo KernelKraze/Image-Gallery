@@ -51,12 +51,23 @@ Welcome to the Image Gallery project! This repository houses a robust solution f
 - 📃 **HTML Gallery Pages**: Automatically creates paginated HTML gallery pages.
 - 🎯 **User-Friendly Interface**: Interactive gallery with modal and navigation.
 
-## 📌 Usage
+## 🛠️ How to Use
 
-1. Clone the repository.
-2. Add media files in the proper directories.
-3. Run the Python scripts in the order mentioned above to prepare the gallery.
-4. Open `index.html` in a web browser to view the gallery.
+1. **Create a Media Folder**: Start by creating a directory for your media files. Name the directory using the format `{number}photo`, where `{number}` represents a chapter or identifier.
+
+2. **Run Scripts**:
+   - Execute `CreateJson.py` to generate a `media.json` file with metadata.
+   - Execute `generate_thumbnails.py` to create thumbnails for the media files.
+
+3. **Check Thumbnails**: If you suspect that some thumbnails might be missing, run `check_thumb.py` to identify and fix issues automatically.
+
+4. **Prepare Assets**: Ensure you have the following assets ready:
+   - `banner.png`
+   - `default_thumb.png`
+   - `wel-come.svg`
+
+   Alternatively, you can manually adjust the source code if you want to customize these assets.
+
 
 ## 📜 License
 
