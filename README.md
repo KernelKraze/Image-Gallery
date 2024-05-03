@@ -1,4 +1,4 @@
-(中文)[./README_CN.md] (한국어)[./README_KR.md]
+[中文](./README_CN.md) [한국어](./README_KR.md)
 # 🖼️ Image Gallery Project
 
 Welcome to the Image Gallery project! This repository houses a robust solution for displaying and managing image and video collections on a Raspberry Pi.
