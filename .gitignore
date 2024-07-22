@@ -12,3 +12,6 @@ media.jsonBAK
 media.json
 default_thumb.png
 banner.png
+dist/
+dist.zip
+image-gallery_rewrite/yarn.lock
