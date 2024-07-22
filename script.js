@@ -9,62 +9,86 @@ document.addEventListener("DOMContentLoaded", function () {
     let mediaData = [];
     let currentMedia = null;
 
-    fetch('./media.json')
-        .then(response => response.json())
-        .then(data => {
-            mediaData = data.media;
-            mediaData.forEach((item, index) => {
-                let thumbElement = document.createElement('img');
-                thumbElement.src = item.thumb || './default_thumb.png'; // 使用缩略图
-                thumbElement.classList.add('media');
-                thumbElement.alt = 'Gallery Media';
-                thumbElement.loading = "lazy";
-                thumbElement.onerror = () => {
-                    thumbElement.src = './default_thumb.png';
-                };
-                thumbElement.onclick = () => showMedia(index);
-                gallery.appendChild(thumbElement);
+    function fetchMediaData() {
+        return fetch('./media.json')
+            .then(response => response.json())
+            .then(data => {
+                mediaData = data.media;
+                return mediaData;
             });
-        });
+    }
+
+    function createMediaElement(item, index) {
+        let thumbElement = document.createElement('img');
+        thumbElement.src = item.thumb || './default_thumb.png';
+        thumbElement.classList.add('media');
+        thumbElement.alt = 'Gallery Media';
+        thumbElement.loading = "lazy";
+        thumbElement.onerror = () => {
+            thumbElement.src = './default_thumb.png';
+        };
+        thumbElement.onclick = () => showMedia(index);
+        return thumbElement;
+    }
 
     function showMedia(index) {
         if (currentMedia && currentMedia.tagName === 'VIDEO') {
             currentMedia.pause();
         }
-
         modal.style.display = "block";
         modalContent.innerHTML = '';
         let item = mediaData[index];
         let fullMedia;
-
         if (item.type === 'video') {
             fullMedia = document.createElement('video');
-            fullMedia.src = item.src; // 现在才加载视频源
+            fullMedia.src = item.src;
             fullMedia.controls = true;
             fullMedia.loop = true;
         } else {
             fullMedia = document.createElement('img');
             fullMedia.src = item.src;
         }
-
         fullMedia.loading = "lazy";
         modalContent.appendChild(fullMedia);
         currentIndex = index;
         currentMedia = fullMedia;
     }
 
-    spanClose.onclick = () => {
+    function closeModal() {
         modal.style.display = "none";
         if (currentMedia && currentMedia.tagName === 'VIDEO') {
             currentMedia.pause();
         }
-    };
-    navLeft.onclick = () => {
-        currentIndex = (currentIndex - 1 + mediaData.length) % mediaData.length;
+    }
+
+    function navigateMedia(direction) {
+        currentIndex = (currentIndex + direction + mediaData.length) % mediaData.length;
         showMedia(currentIndex);
-    };
-    navRight.onclick = () => {
-        currentIndex = (currentIndex + 1) % mediaData.length;
-        showMedia(currentIndex);
-    };
+    }
+
+    fetchMediaData().then(mediaData => {
+        mediaData.forEach((item, index) => {
+            gallery.appendChild(createMediaElement(item, index));
+        });
+    });
+
+    spanClose.onclick = closeModal;
+    navLeft.onclick = () => navigateMedia(-1);
+    navRight.onclick = () => navigateMedia(1);
+
+    document.addEventListener('keydown', function(event) {
+        if (modal.style.display === "block") {
+            switch(event.key) {
+                case "ArrowLeft":
+                    navigateMedia(-1);
+                    break;
+                case "ArrowRight":
+                    navigateMedia(1);
+                    break;
+                case "Escape":
+                    closeModal();
+                    break;
+            }
+        }
+    });
 });

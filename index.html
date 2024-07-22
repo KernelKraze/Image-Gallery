@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="./.static/css/global.css" type="text/css" rel="stylesheet" />
-    <!--<link href="style.css" type="text/css" rel="stylesheet" />-->
 </head>
 <body>
-    <div class="banner">
-        <img src="./wel-come.svg" alt="Welcome Banner" loading="lazy" />
-        <img src="./banner.png" alt="Welcome Banner" loading="lazy" />
-    </div>
-    <div class="gallery" id="imageGallery"></div>
-
+    <header>
+        <div class="banner">
+            <img src="./wel-come.svg" alt="Welcome Banner" loading="lazy">
+            <img src="./banner.png" alt="Welcome Banner" loading="lazy">
+        </div>
+    </header>
+    <main>
+        <div class="gallery" id="imageGallery"></div>
+    </main>
     <!-- Modal -->
     <div id="myModal" class="modal">
-        <span class="close" aria-label="Close">&times;</span>
-        <span class="navigate left" aria-label="Previous">&#10094;</span>
-        <span class="navigate right" aria-label="Next">&#10095;</span>
+        <span class="close" aria-label="Close"><i class="fas fa-times"></i></span>
+        <span class="navigate left" aria-label="Previous"><i class="fas fa-chevron-left"></i></span>
+        <span class="navigate right" aria-label="Next"><i class="fas fa-chevron-right"></i></span>
         <div class="modal-content" id="modalContent"></div>
     </div>
-
     <script src="script.js" defer></script>
 </body>
 </html>
